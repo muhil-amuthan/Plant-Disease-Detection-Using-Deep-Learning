@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Plant Disease Detection</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(135deg,#43cea2,#185a9d);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card{
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+h2{
+    text-align:center;
+    color:#2c3e50;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:600;
+    margin-top:12px;
+    display:block;
+}
+
+select,input[type=file],input[type=text]{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background: linear-gradient(90deg,#27ae60,#2ecc71);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+a{
+    display:block;
+    margin-top:15px;
+    text-align:center;
+    text-decoration:none;
+    color:#8e44ad;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+<h2>🌿 Plant Disease Detection</h2>
+
+<form action="/diagnose" method="post" enctype="multipart/form-data">
+
+<label>Language</label>
+<select name="lang">
+    <option value="en">English</option>
+    <option value="ta">தமிழ்</option>
+</select>
+
+<label>Diagnosis Mode</label>
+<select name="mode" id="mode" onchange="toggleMode()">
+    <option value="image">Image Diagnosis</option>
+    <option value="text">User Input Diagnosis</option>
+</select>
+
+<div id="imageBox">
+    <label>Upload Leaf Image</label>
+    <input type="file" name="image">
+</div>
+
+<div id="textBox" style="display:none">
+    <label>Crop</label>
+    <select name="crop">
+        {% for c in crops %}
+        <option>{{c}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Symptoms</label>
+    <input type="text" name="symptoms" placeholder="Yellow spots, curl, etc">
+</div>
+
+<button type="submit">Diagnose</button>
+</form>
+
+<a href="/history">📜 View History</a>
+</div>
+
+<script>
+function toggleMode(){
+    let m=document.getElementById("mode").value;
+    document.getElementById("imageBox").style.display = m==="image"?"block":"none";
+    document.getElementById("textBox").style.display = m==="text"?"block":"none";
+}
+</script>
+
+</body>
+</html>

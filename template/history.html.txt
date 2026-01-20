@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Disease Detection</title>
+
+    <!-- ✅ LINK EXTERNAL CSS (Flask correct way) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
+</head>
+<body>
+
+<div class="card">
+    <h2>🌿 Plant Disease Detection</h2>
+
+    <form action="/diagnose" method="post" enctype="multipart/form-data">
+
+        <label>Language</label>
+        <select name="lang">
+            <option value="en">English</option>
+            <option value="ta">தமிழ்</option>
+        </select>
+
+        <label>Diagnosis Mode</label>
+        <select name="mode" id="mode" onchange="toggleMode()">
+            <option value="image">Image Diagnosis</option>
+            <option value="text">User Input Diagnosis</option>
+        </select>
+
+        <!-- IMAGE INPUT -->
+        <div id="imageBox">
+            <label>Upload Leaf Image</label>
+            <input type="file" name="image">
+        </div>
+
+        <!-- TEXT INPUT -->
+        <div id="textBox" style="display:none">
+            <label>Crop</label>
+            <select name="crop">
+                {% for c in crops %}
+                <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Symptoms</label>
+            <input type="text" name="symptoms" placeholder="Yellow leaves, spots, curl...">
+        </div>
+
+        <button type="submit">Diagnose</button>
+    </form>
+
+    <a href="/history">📜 View History</a>
+</div>
+
+<!-- ✅ LINK EXTERNAL JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

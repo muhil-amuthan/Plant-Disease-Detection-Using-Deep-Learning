@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Diagnosis Result</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(135deg,#ff9966,#ff5e62);
+    font-family:'Segoe UI',sans-serif;
+}
+
+.card{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+h2{
+    text-align:center;
+    color:#2c3e50;
+}
+
+.result{
+    margin-top:20px;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.result b{
+    color:#34495e;
+}
+
+.highlight{
+    font-size:18px;
+    color:#c0392b;
+    font-weight:bold;
+}
+
+.back{
+    display:block;
+    margin-top:20px;
+    text-align:center;
+    font-weight:bold;
+    color:#2980b9;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+<h2>🌱 {{L.title}}</h2>
+
+<div class="result">
+<p><b>Disease:</b> <span class="highlight">{{disease}}</span></p>
+<p><b>{{L.confidence}}:</b> {{confidence}}</p>
+<p><b>{{L.severity}}:</b> {{severity}}</p>
+
+<p><b>{{L.treatment}}:</b><br>{{treatment}}</p>
+<p><b>{{L.prevention}}:</b><br>{{prevention}}</p>
+</div>
+
+<a class="back" href="/">🔄 {{L.back}}</a>
+</div>
+
+</body>
+</html>
