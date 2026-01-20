@@ -1,0 +1,155 @@
+/* ================================
+   GLOBAL STYLES
+================================ */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================
+   MAIN CARD
+================================ */
+.card {
+    width: 500px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   HEADINGS
+================================ */
+.card h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 25px;
+}
+
+/* ================================
+   FORM ELEMENTS
+================================ */
+label {
+    font-weight: 600;
+    margin-top: 12px;
+    display: block;
+    color: #333;
+}
+
+select,
+input[type="file"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+select:focus,
+input:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 6px rgba(46,125,50,0.4);
+}
+
+/* ================================
+   BUTTON
+================================ */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ================================
+   RESULT SECTION
+================================ */
+.result {
+    background: #eef7ee;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.result p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.highlight {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* ================================
+   LINKS
+================================ */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   HISTORY PAGE
+================================ */
+.history-item {
+    background: #f1f8e9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+        padding: 20px;
+    }
+}
